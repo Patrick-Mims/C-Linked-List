@@ -17,3 +17,14 @@ list_t new_node()
 
   return node;
 }
+
+void insert(list_t *node, int item)
+{
+  list_t newNode = new_node();
+
+  newNode->data = item;
+  newNode->nextPtr = node;
+  node = newNode;
+
+  printf("Item %d inserted\n", item);
+}

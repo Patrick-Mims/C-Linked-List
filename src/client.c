@@ -7,7 +7,7 @@ int main(void)
 {
   List head = new_node();
 
-  insert(&head);
+  insert(&head, 100);
 
   return 0;
 }
