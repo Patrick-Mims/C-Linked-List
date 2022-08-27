@@ -18,8 +18,10 @@ list_t new_node()
   return node;
 }
 
+/* pass a double pointer */
 void insert(list_t *node, int item)
 {
+  /* create a new node */
   list_t newNode = new_node();
 
   newNode->data = item;
