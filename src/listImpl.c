@@ -15,18 +15,28 @@ list_t new_node()
 
   if((newNode = malloc(sizeof(list_t))) == NULL) exit(EXIT_FAILURE);
 
-  return node;
+  return newNode;
 }
 
 /* pass a double pointer */
-void insert(list_t *node, int item)
+void insert(list_t *list, int item)
 {
   /* create a new node */
   list_t newNode = new_node();
 
   newNode->data = item;
-  newNode->nextPtr = node;
-  node = newNode;
+  newNode->nextPtr = *list;
+  *list = newNode;
 
-  printf("Item %d inserted\n", item);
+  printf("Item %d inserted\n", newNode->data);
+}
+
+void display_list(struct Node **list)
+{
+  int i = 1;
+  for(; (*list)->nextPtr != NULL; *list = (*list)->nextPtr)
+  {
+    printf("%d. %d", i, (*list)->data);
+    i = i + 1;
+  }
 }
