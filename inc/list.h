@@ -4,7 +4,8 @@
 typedef struct Node *list_t;
 
 list_t new_node();
-void insert(list_t *, int);
+void insert(struct Node **, int);
 void display_list();
+struct Node *find_number(struct Node *, int);
 
 #endif
