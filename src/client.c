@@ -21,5 +21,11 @@ int main(void)
   display_list(&head);
   insert(&head, 900);
 
+  find_number(head, 400);
+
+  /*
+   * a simple comment
+   * */
+
   return 0;
 }
