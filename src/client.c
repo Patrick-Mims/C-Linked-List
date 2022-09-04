@@ -5,6 +5,7 @@
 
 int main(void)
 {
+
   list_t head = new_node();
 
   insert(&head, 100);
@@ -22,6 +23,10 @@ int main(void)
   insert(&head, 900);
 
   find_number(head, 400);
+
+  char ch;
+
+  scanf("%c", &ch);
 
   /*
    * a simple comment
