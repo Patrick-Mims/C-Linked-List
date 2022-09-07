@@ -22,15 +22,7 @@ int main(void)
   display_list(&head);
   insert(&head, 900);
 
-  find_number(head, 400);
-
-  char ch;
-
-  scanf("%c", &ch);
-
-  /*
-   * a simple comment
-   * */
+  find_number(&head, 900);
 
   return 0;
 }

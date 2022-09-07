@@ -18,10 +18,8 @@ list_t new_node()
   return newNode;
 }
 
-//void insert(list_t *list, int item)
 void insert(struct Node **list, int item)
 {
-  //list_t newNode = new_node();
   struct Node *newNode = NULL;
 
   if((newNode = malloc(sizeof(struct Node))) == NULL) exit(EXIT_FAILURE);
@@ -30,7 +28,7 @@ void insert(struct Node **list, int item)
   newNode->nextPtr = *list;
   *list = newNode;
 
-  printf("Item %d inserted\n", newNode->data);
+  //printf("Item %d inserted\n", newNode->data);
 }
 
 void display_list(struct Node **list)
@@ -39,25 +37,37 @@ void display_list(struct Node **list)
 
   for(; (*list)->nextPtr != NULL; *list = (*list)->nextPtr)
   {
-    printf("%d. %d", i, (*list)->data);
+    printf("-> [%d]\n",(*list)->data);
     i = i + 1;
+  }
+
+}
+
+void find_number(struct Node **list, int item)
+{
+  for(; (*list)->nextPtr != NULL; *list = (*list)->nextPtr)
+  {
+    if((*list)->data == item)
+    {
+      printf("Record found: ");
+      printf("%d\n", (*list)->data);
+    } else {
+      printf("Record not found.\n");
+    }
   }
 }
 
+/*
 struct Node *find_number(struct Node *list, int number)
 {
   list_t p = new_node();
-  p = (struct Node *)list;
 
-  /*
   for(p = list; p != NULL && number > p->data; p = p->nextPtr)
-  {
-    if(p != NULL && number == p->data)
-    {
-      return p;
-    }
-  }
-  */
+    ;
+
+  if(p != NULL && number == p->data)
+    return p;
 
   return NULL;
 }
+*/
