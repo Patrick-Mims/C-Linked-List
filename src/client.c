@@ -5,24 +5,19 @@
 
 int main(void)
 {
-
   list_t head = new_node();
 
   insert(&head, 100);
-
-  display_list(&head);
   insert(&head, 300);
-
-  display_list(&head);
   insert(&head, 500);
-
-  display_list(&head);
   insert(&head, 700);
-
-  display_list(&head);
   insert(&head, 900);
 
-  find_number(&head, 900);
+  display_list(head);
+
+  find_number(head, 500);
+
+  load_list();
 
   return 0;
 }

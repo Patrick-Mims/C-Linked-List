@@ -3,6 +3,8 @@
 
 #include "list.h"
 
+#define INDEX 100
+
 struct Node
 {
   int data;
@@ -27,47 +29,47 @@ void insert(struct Node **list, int item)
   newNode->data = item;
   newNode->nextPtr = *list;
   *list = newNode;
-
-  //printf("Item %d inserted\n", newNode->data);
 }
 
-void display_list(struct Node **list)
+void display_list(struct Node *list)
 {
-  static int i = 1;
-
-  for(; (*list)->nextPtr != NULL; *list = (*list)->nextPtr)
+  for(; list != NULL; list = list->nextPtr)
   {
-    printf("-> [%d]\n",(*list)->data);
-    i = i + 1;
+    printf("%d\n", list->data);
   }
-
 }
 
-void find_number(struct Node **list, int item)
+void find_number(struct Node *list, int item)
 {
-  for(; (*list)->nextPtr != NULL; *list = (*list)->nextPtr)
+  for(; list != NULL; list = list->nextPtr)
   {
-    if((*list)->data == item)
+    if(list->data == item)
     {
-      printf("Record found: ");
-      printf("%d\n", (*list)->data);
+      printf("Item Found!\n");
     } else {
-      printf("Record not found.\n");
+      printf("Item Not Found!\n");
     }
   }
 }
 
-/*
-struct Node *find_number(struct Node *list, int number)
+void load_list()
 {
-  list_t p = new_node();
+  FILE *fp = NULL;
+  const int size = 100;
+  char line[INDEX] = {0};
 
-  for(p = list; p != NULL && number > p->data; p = p->nextPtr)
-    ;
+  if((fp = fopen("MOCK_DATA.csv", "r")) == NULL)
+  {
+    printf("File Doesn't Exist");
+    exit(EXIT_FAILURE);
+  }
 
-  if(p != NULL && number == p->data)
-    return p;
+  printf("Fetching addresses...\n");
 
-  return NULL;
+  while(fgets(line, size, fp))
+  {
+    printf("%s", line);
+  }
+
+  fclose(fp);
 }
-*/

@@ -8,7 +8,8 @@ typedef struct Node *list_t;
 
 list_t new_node();
 void insert(struct Node **, int);
-void display_list(struct Node **);
-void find_number(struct Node **, int);
+void display_list(struct Node *);
+void find_number(struct Node *, int);
+void load_list();
 
 #endif
