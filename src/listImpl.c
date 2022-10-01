@@ -20,6 +20,15 @@ list_t new_node()
   return newNode;
 }
 
+list_t newNodeStr(int size)
+{
+  list_t newNodeStr = NULL;
+
+  if((newNodeStr = malloc(sizeof(char) * (size + 1))) == NULL) exit(EXIT_FAILURE);
+
+  return newNodeStr;
+}
+
 void insert(struct Node **list, int item)
 {
   struct Node *newNode = NULL;
@@ -52,6 +61,15 @@ void find_number(struct Node *list, int item)
   }
 }
 
+void insert_str()
+{
+  struct Node *node = NULL;
+
+  printf("This is search...\n");
+
+  node = newNodeStr(20);
+}
+
 void load_list()
 {
   FILE *fp = NULL;
@@ -64,12 +82,13 @@ void load_list()
     exit(EXIT_FAILURE);
   }
 
-  printf("Fetching addresses...\n");
 
   while(fgets(line, size, fp))
   {
     printf("%s", line);
   }
+
+  printf("Fetching addresses...\n");
 
   fclose(fp);
 }

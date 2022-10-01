@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 #include "list.h"
+#include "photo.h"
 
 int main(void)
 {
@@ -18,6 +21,8 @@ int main(void)
   find_number(head, 500);
 
   load_list();
+
+  struct node *tail = NewNode();
 
   return 0;
 }
